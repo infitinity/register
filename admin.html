@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Dark Purple App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="adminLoginModal" class="modal-overlay">
+        <div class="modal-content">
+            <h2>Admin Login</h2>
+            <form id="adminLoginForm">
+                <div class="input-group">
+                    <label for="adminPassword">Password</label>
+                    <input type="password" id="adminPassword" required class="full-width-input">
+                </div>
+                <button type="submit" class="submit-button full-width-input">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+                <p id="login-error" class="error-message"></p>
+            </form>
+        </div>
+    </div>
+
+    <div id="dashboardContent" class="container admin-container hidden">
+        <header class="dashboard-header">
+            <h1><i class="fas fa-chart-line"></i> Admin Dashboard</h1>
+            <p>User Registrations Management</p>
+            <button id="logoutButton" class="logout-button"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        </header>
+
+        <div class="filter-controls">
+            <div class="filter-group">
+                <label for="startDate">Start Date:</label>
+                <input type="date" id="startDate" class="filter-input">
+            </div>
+            <div class="filter-group">
+                <label for="endDate">End Date:</label>
+                <input type="date" id="endDate" class="filter-input">
+            </div>
+            <div class="filter-group">
+                <label for="countryCodeFilter">Country:</label>
+                <select id="countryCodeFilter" class="filter-input">
+                    <option value="">All Countries</option>
+                    </select>
+            </div>
+            <button id="applyFilters" class="action-button"><i class="fas fa-filter"></i> Apply Filters</button>
+            <button id="exportCsv" class="action-button"><i class="fas fa-file-csv"></i> Export CSV</button>
+        </div>
+
+        <div class="table-wrapper">
+            <table id="userTable">
+                <thead>
+                    <tr>
+                        <th>Date/Time</th>
+                        <th>Name</th>
+                        <th>Phone Number</th>
+                        <th>Email</th>
+                        <th>City</th>
+                    </tr>
+                </thead>
+                <tbody id="userTableBody">
+                    </tbody>
+            </table>
+        </div>
+
+        <div class="pagination-controls">
+            <button id="prevPage" class="action-button" disabled><i class="fas fa-arrow-left"></i> Previous</button>
+            <span id="pageInfo">Page 1 of 1</span>
+            <button id="nextPage" class="action-button" disabled>Next <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
